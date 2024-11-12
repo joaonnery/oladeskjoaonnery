@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="icon" type="image/png" href="/logo.png">
+    <link rel="stylesheet" href="/login.css">
+    <script src="/login.js"></script>
+    <script>
+
+        // Função para mostrar a aba "Sobre" ao clicar com o botão direito
+document.addEventListener('contextmenu', function(event) {
+    event.preventDefault(); // Previne o menu de contexto padrão
+    var sobreAbinha = document.getElementById('sobreAbinha');
+    sobreAbinha.style.display = 'block'; // Exibe a aba "Sobre"
+});
+
+// Função para fechar a aba "Sobre"
+function fecharAbinha() {
+    var sobreAbinha = document.getElementById('sobreAbinha');
+    sobreAbinha.style.display = 'none'; // Oculta a aba "Sobre"
+}
+
+// Função para detectar a tecla F12 e Ctrl + U
+document.addEventListener('keydown', function(event) {
+    if (event.key === "F12" || (event.ctrlKey && event.key === "u")) {
+        event.preventDefault(); // Impede a ação padrão de F12 e Ctrl + U
+        var sobreAbinha = document.getElementById('sobreAbinha');
+        sobreAbinha.style.display = 'block'; // Exibe a aba "Sobre"
+    }
+});
+
+
+// Função para verificar e restaurar a senha se o usuário optar por "Lembrar senha"
+document.addEventListener('DOMContentLoaded', function() {
+    // Verifica se a opção de "lembrar senha" está ativa
+    const rememberMe = document.getElementById('remember');
+    const nomeUsuario = document.getElementById('nomes');
+    const senhaInput = document.getElementById('senha');
+    
+    // Verifica se existe um dado armazenado no localStorage
+    if(localStorage.getItem('remember') === 'true') {
+        nomeUsuario.value = localStorage.getItem('nomeUsuario');
+        senhaInput.value = localStorage.getItem('senha');
+        rememberMe.checked = true;
+    }
+
+    // Salva os dados quando o formulário for enviado
+    document.getElementById('login').addEventListener('submit', function(event) {
+        event.preventDefault(); // Previne o envio do formulário
+        if (rememberMe.checked) {
+            localStorage.setItem('remember', 'true');
+            localStorage.setItem('nomeUsuario', nomeUsuario.value);
+            localStorage.setItem('senha', senhaInput.value);
+        } else {
+            localStorage.removeItem('remember');
+            localStorage.removeItem('nomeUsuario');
+            localStorage.removeItem('senha');
+        }
+
+    });
+});
+
+
+    </script>
+</head>
+<body>
+    <div class="page">
+        <form class="formLogin "id="login" >
+            <!-- Área para o logo e nome do software -->
+            <div class="logoContainer">
+                <img src="/logog.png" alt="Logo Ola Telecom" class="logo">
+                <h2 class="softwareName">Help Center Olá Telecom</h2>
+            </div>
+            
+            <h1>Login</h1>
+            <p>Digite os seus dados de acesso no campo abaixo.</p>
+            <label for="nomes">Usuário</label>
+            <input type="text" name="nomes" id="nomes" placeholder="Digite seu usuário" required>
+            <label for="senha">Senha</label>
+            <input type="password" name="senha" id="senha" placeholder="Digite sua senha" required>
+
+            <!-- Checkbox Lembrar senha -->
+            <div class="rememberContainer">
+                <input type="checkbox" id="remember" name="remember">
+                <label for="remember">Lembrar senha</label>
+            </div>
+
+            <button type="submit" onclick="logar()" value="Entrar" id="btn-login">
+                Entrar
+            </button>
+        </form>
+    </div>
+    <div id="sobreAbinha" class="sobre-abinha">
+        <div class="sobre-conteudo">
+            <h3>Sobre o Sistema</h3>
+            <p>Versão: 1.0.0</p>
+            <p>Ultima atualização: 12/11/2024</p>
+            <button onclick="fecharAbinha()">Fechar</button>
+        </div>
+    </div>    
+    
+</body>
+
+<footer class="footer">
+    <p>© 2024 Desenvolvido por João Pedro Nery e equipe de suporte Olá Telecom.</p>
+</footer>
+
+
+</html>

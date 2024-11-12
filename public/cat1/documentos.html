@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentos - Olá Telecom</title>
+    <link rel="icon" type="image/png" href="/logo.png">
+    <link rel="stylesheet" href="/styles-t.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <img src="/logo.png" alt="Logo" class="logo">
+        <h1>Documentos</h1>
+        <a href="/acr1/homepage.html">
+            <button class="download-btn">Home</button>
+        </a>
+    </header>
+    
+    <section class="search-section">
+        <!--<h2>Pesquise por um documento</h2> Seção de tutoriais -->
+        <div class="search-bar">
+            <input type="text" placeholder="O que você está procurando?" oninput="pesquisarTutoriais()">
+            <button onclick="pesquisarTutoriais()"><i class="fas fa-search search-icon"></i></button>
+        </div>
+    </section>
+
+    <!-- Seção de tutoriais -->
+    <section class="tutorials">
+        <div class="tutorial">
+            <div class="tutorial-image">
+                <img src="/processosc.png" alt="Tutorial 1">
+            </div>
+            <h3><a href="/categories/scripts-informacoes-suporte.html">Processos Suporte</a></h3>
+            <p>Consulte processos do suporte </p>
+        </div>
+        <div class="tutorial">
+            <div class="tutorial-image">
+                <img src="/processoss.png" alt="Tutorial 2">
+            </div>
+            <h3><a href="/categories/scripts-informacoes-comercial.html">Processos Comercial</a></h3>
+            <p>Consulte processos do comercial</p>
+        </div>
+        <div class="tutorial">
+            <div class="tutorial-image">
+                <img src="/processosf.png" alt="Tutorial 3">
+            </div>
+            <h3><a href="detalhes.html?tutorial=financeiro">Processos Financeiro</a></h3>
+            <p>Consulte processos do Financeiro.</p>
+        </div>
+    </section>
+    <div id="sobreAbinha" class="sobre-abinha">
+        <div class="sobre-conteudo">
+            <h3>Sobre o Sistema</h3>
+            <p>Versão: 1.0.0</p>
+            <p>Ultima atualização: 12/11/2024</p>
+            <button onclick="fecharAbinha()">Fechar</button>
+        </div>
+    </div>
+
+    <script>
+        // Função para pesquisa de tutoriais
+        function pesquisarTutoriais() {
+            var query = document.querySelector('.search-bar input').value.toLowerCase();
+            var tutorials = document.querySelectorAll('.tutorial');
+            tutorials.forEach(function(tutorial) {
+                var title = tutorial.querySelector('h3').textContent.toLowerCase();
+                if (title.includes(query)) {
+                    tutorial.style.display = 'block';
+                } else {
+                    tutorial.style.display = 'none';
+                }
+            });
+        }
+        // Função para mostrar a aba "Sobre" ao clicar com o botão direito
+document.addEventListener('contextmenu', function(event) {
+    event.preventDefault(); // Previne o menu de contexto padrão
+    var sobreAbinha = document.getElementById('sobreAbinha');
+    sobreAbinha.style.display = 'block'; // Exibe a aba "Sobre"
+});
+
+// Função para fechar a aba "Sobre"
+function fecharAbinha() {
+    var sobreAbinha = document.getElementById('sobreAbinha');
+    sobreAbinha.style.display = 'none'; // Oculta a aba "Sobre"
+}
+
+// Função para detectar a tecla F12 e Ctrl + U
+document.addEventListener('keydown', function(event) {
+    if (event.key === "F12" || (event.ctrlKey && event.key === "u")) {
+        event.preventDefault(); // Impede a ação padrão de F12 e Ctrl + U
+        var sobreAbinha = document.getElementById('sobreAbinha');
+        sobreAbinha.style.display = 'block'; // Exibe a aba "Sobre"
+    }
+})
+    </script>
+</body>
+</html>

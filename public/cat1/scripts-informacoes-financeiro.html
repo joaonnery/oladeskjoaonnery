@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes - Olá Telecom</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="icon" type="image/png" href="../logo.png">
+    <link rel="stylesheet" href="../detalhes.css">
+</head>
+<body>
+    <header class="header">
+        <img src="../logo.png" alt="Logo" class="logo">
+        <h1>Scripts Financeiro</h1>
+        <a href="/cat1/informacoes.html">
+            <button class="download-btn">Voltar</button>
+        </a>
+    </header>
+
+    <!-- Seção de Busca -->
+    <div class="search-section">
+        <!-- <h2>Buscar por Script</h2>Seção de tutoriais -->
+        <div class="search-bar">
+            <input type="text" placeholder="O que você está procurando?" oninput="pesquisarTutoriais()">
+            <button onclick="pesquisarTutoriais()"><i class="fas fa-search search-icon"></i></button>
+        </div>
+    </div>
+
+    <!-- Seção de Detalhes -->
+    <div class="details-section">
+    
+        <div class="detail-box" data-title="Script 1: Após realizar configurações">
+            <h3>Script 1: Em desenvolvimento</h3>
+            <p>Realizei algumas alterações, peço que reinicie o roteador, retirando da tomada e colocando novamente. Após o roteador ligar, conecte-se na rede WIFI e teste a conexão, para verificarmos se o problema foi solucionado. Fico no aguardo!</p>
+            <button class="copy-btn" onclick="copiarConteudo(this)">
+                <i class="fas fa-copy"></i>
+            </button>
+        </div>
+    
+        <div class="detail-box" data-title="Script 2: Incidente em massa 01">
+            <h3>Script 2: Em desenvolvimento</h3>
+            <p>Houve um incidente de rede no seu bairro, já temos equipes no local realizando a manutenção, assim que concluído, a conexão será reestabelecida automaticamente, caso houver um problema e for necessário enviar uma equipe diretamente em sua residência, entraremos em contato. No momento basta aguardar e não será necessário mexer nos equipamentos, estamos com duas equipes no local para concluir o mais rápido possível, tudo bem?</p>
+            <button class="copy-btn" onclick="copiarConteudo(this)">
+                <i class="fas fa-copy"></i>
+            </button>
+        </div>
+    
+        <!-- <a href="#" class="button">Ver mais detalhes</a> -->
+    </div>
+    <div id="sobreAbinha" class="sobre-abinha">
+        <div class="sobre-conteudo">
+            <h3>Sobre o Sistema</h3>
+            <p>Versão: 1.0.0</p>
+            <p>Ultima atualização: 12/11/2024</p>
+            <button onclick="fecharAbinha()">Fechar</button>
+        </div>
+    </div>
+
+    <script>
+        // Função para buscar e filtrar os scripts
+        function pesquisarTutoriais() {
+            var input = document.querySelector('.search-bar input').value.toLowerCase();
+            var detailBoxes = document.querySelectorAll('.detail-box');
+
+            detailBoxes.forEach(function(box) {
+                var title = box.getAttribute('data-title').toLowerCase();
+                if (title.includes(input)) {
+                    box.style.display = 'block'; // Exibe o item
+                } else {
+                    box.style.display = 'none'; // Oculta o item
+                }
+            });
+        }
+        // Função para copiar o conteúdo do <p> para a área de transferência
+        function copiarConteudo(button) {
+        // Encontra o parágrafo dentro da mesma "detail-box"
+        var paragraph = button.closest('.detail-box').querySelector('p');
+
+        // Cria um campo de input temporário para copiar o conteúdo
+        var tempInput = document.createElement('input');
+        document.body.appendChild(tempInput);
+        tempInput.value = paragraph.textContent; // Atribui o conteúdo do parágrafo
+        tempInput.select(); // Seleciona o conteúdo
+        document.execCommand('copy'); // Copia o conteúdo para a área de transferência
+        document.body.removeChild(tempInput); // Remove o campo temporário
+
+        // Opcional: mostrar um aviso de sucesso (um alerta, por exemplo)
+        alert('Conteúdo copiado!');
+        }
+
+        // Função para mostrar a aba "Sobre" ao clicar com o botão direito
+document.addEventListener('contextmenu', function(event) {
+    event.preventDefault(); // Previne o menu de contexto padrão
+    var sobreAbinha = document.getElementById('sobreAbinha');
+    sobreAbinha.style.display = 'block'; // Exibe a aba "Sobre"
+});
+
+// Função para fechar a aba "Sobre"
+function fecharAbinha() {
+    var sobreAbinha = document.getElementById('sobreAbinha');
+    sobreAbinha.style.display = 'none'; // Oculta a aba "Sobre"
+}
+
+// Função para detectar a tecla F12 e Ctrl + U
+document.addEventListener('keydown', function(event) {
+    if (event.key === "F12" || (event.ctrlKey && event.key === "u")) {
+        event.preventDefault(); // Impede a ação padrão de F12 e Ctrl + U
+        var sobreAbinha = document.getElementById('sobreAbinha');
+        sobreAbinha.style.display = 'block'; // Exibe a aba "Sobre"
+    }
+})
+        
+    </script>
+</body>
+<footer class="footer">
+    <p>© 2024 Desenvolvido por João Pedro Nery e equipe de suporte Olá Telecom.</p>
+</footer>
+</html>

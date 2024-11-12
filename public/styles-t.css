@@ -1,0 +1,334 @@
+/* Configurações padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background: #020F27;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    text-decoration: none;
+}
+
+main {
+    flex: 1;
+}
+
+/* Header */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #020F27;
+    padding: 10px 40px;
+    color: white;
+}
+
+.logo {
+    height: 70px;
+}
+
+.download-btn {
+    background-color: #ffffff;
+    color: #ff5200;
+    padding: 10px 25px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+/* Seção de busca */
+.search-section {
+    background: white;
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.search-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #020F27;
+}
+
+.search-bar {
+    display: flex;
+    margin: 20px auto;
+    max-width: 600px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 10px 0px 0px 10px;
+    background-color: #020F27;
+    color: white;
+}
+
+.search-bar button {
+    background-color: #ff5200;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 0px 10px 10px 0px;
+}
+
+.search-icon {
+    font-size: 24px;
+    color: white;
+}
+
+/* Seção de tutoriais */
+.tutorials {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    text-decoration: none;
+}
+
+.tutorial {
+    text-decoration: none;
+    background-color: #ffffff;
+    color: #020F27;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    height: 350px; /* Ajuste a altura para acomodar imagem e texto */
+    text-align: center;
+    transition: background-color 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tutorial:hover {
+    background-color: #bbd1fa;
+}
+
+.tutorial-image {
+    width: 100%;
+    height: 150px; /* Altura da imagem */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 15px;
+    text-decoration: none;
+}
+
+.tutorial-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    text-decoration: none;
+}
+
+.tutorial h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #020F27;
+    text-decoration: none;
+}
+
+.tutorial p {
+    font-size: 14px;
+    color: #555;
+    text-decoration: none;
+}
+
+/* Roda pé */
+.footer {
+    background-color: #000; /* Fundo preto */
+    color: white; /* Texto branco */
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 20px; /* Espaço superior para afastar do conteúdo principal */
+}
+
+/* Remover sublinhado e cor azul dos links */
+a {
+    text-decoration: none; /* Remove sublinhado */
+    color: inherit; /* Mantém a cor original do texto, sem a cor azul padrão de links */
+}
+
+a:hover {
+    text-decoration: none; /* Remove sublinhado também no hover */
+    color: inherit; /* Mantém a cor original ao passar o mouse */
+}
+
+
+/* Media Query para celulares (dispositivos com largura máxima de 768px) */
+@media (max-width: 768px) {
+
+    /* Ajuste no cabeçalho */
+    .header {
+        flex-direction: column;
+        padding: 10px 20px;
+    }
+
+    .logo {
+        height: 50px;
+    }
+
+    .download-btn {
+        padding: 8px 20px;
+        font-size: 16px;
+    }
+
+    /* Seção de busca */
+    .search-section {
+        padding: 40px 15px;
+    }
+
+    .search-section h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .search-bar {
+        flex-direction: column;
+        max-width: 90%;
+    }
+
+    .search-bar input {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .search-bar button {
+        padding: 12px;
+    }
+
+    /* Seção de tutoriais */
+    .tutorials {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .tutorial {
+        width: 100%; /* As tutoriais ocupam toda a largura disponível */
+        height: auto; /* Ajusta a altura para ser mais flexível */
+    }
+
+    .tutorial-image {
+        height: 120px; /* Reduz a altura da imagem */
+    }
+
+    .tutorial h3 {
+        font-size: 16px;
+    }
+
+    .tutorial p {
+        font-size: 12px;
+    }
+
+    /* Ajuste no rodapé */
+    .footer {
+        padding: 15px;
+    }
+}
+
+
+/* Rodapé */
+.footer {
+    width: 100%;
+    background-color: #000000; /* Cor de fundo do rodapé */
+    color: #ffffff; /* Cor do texto */
+    text-align: center;
+    padding: 20px 0; /* Espaçamento vertical */
+    font-size: 14px;
+    font-weight: 400;
+     margin-top: 10%;
+}
+
+
+.footer p {
+    margin: 0;
+    font-weight: 400;
+}
+
+/* Estilizando a barra de rolagem */
+::-webkit-scrollbar {
+    width: 8px; /* largura da barra de rolagem */
+    height: 8px; /* altura da barra de rolagem horizontal */
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* cor de fundo do trilho da barra de rolagem */
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #F26F21; /* cor da parte "pegajosa" da barra de rolagem */
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #e65c1c; /* cor de destaque quando o usuário passa o mouse */
+}
+
+/* Estilizando a cor de foco nos inputs */
+.formLogin input:focus {
+    border: 1px solid #F26F21; /* borda de foco dos campos de input */
+}
+
+/* Estilizando os links */
+.formLogin a:hover {
+    color: #F26F21; /* cor de destaque ao passar o mouse sobre o link */
+}
+
+/* Estilizando o botão */
+.btn:hover {
+    background-color: #F26F21; /* cor de fundo ao passar o mouse sobre o botão */
+}
+
+
+/* Estilo básico para a aba "Sobre" */
+.sobre-abinha {
+    display: none; /* Oculta a aba por padrão */
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    font-family: Verdana, Geneva, Tahoma, sans-serif, sans-serif; /* Fonte semelhante */
+    font-size: 12px; /* Tamanho da fonte do conteúdo */
+}
+
+.sobre-conteudo h3 {
+    margin-top: 0;
+}
+
+.sobre-conteudo button {
+    background-color: #ff5200;
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #b63700;
+}

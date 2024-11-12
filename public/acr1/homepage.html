@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center Olá</title>
+    <link rel="icon" type="image/png" href="/logo.png">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+         document.addEventListener('DOMContentLoaded', function() {
+    // Normaliza a entrada, removendo acentos e colocando em minúsculas
+    
+   // Função para mostrar a aba "Sobre" ao clicar com o botão direito
+document.addEventListener('contextmenu', function(event) {
+    event.preventDefault(); // Previne o menu de contexto padrão
+    var sobreAbinha = document.getElementById('sobreAbinha');
+    sobreAbinha.style.display = 'block'; // Exibe a aba "Sobre"
+});
+
+// Função para fechar a aba "Sobre"
+function fecharAbinha() {
+    var sobreAbinha = document.getElementById('sobreAbinha');
+    sobreAbinha.style.display = 'none'; // Oculta a aba "Sobre"
+}
+
+// Função para detectar a tecla F12 e Ctrl + U
+document.addEventListener('keydown', function(event) {
+    if (event.key === "F12" || (event.ctrlKey && event.key === "u")) {
+        event.preventDefault(); // Impede a ação padrão de F12 e Ctrl + U
+        var sobreAbinha = document.getElementById('sobreAbinha');
+        sobreAbinha.style.display = 'block'; // Exibe a aba "Sobre"
+    }
+})
+
+    document.querySelector('.search-bar input').addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {  // Verifica se a tecla pressionada foi "Enter"
+            pesquisar();  // Chama a função de pesquisa
+        }
+    });
+});
+
+
+function normalizeText(text) {
+        return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+    }
+
+    function pesquisar() {
+        // Obter o valor do campo de busca
+        const query = document.querySelector('.search-bar input').value.toLowerCase();
+        const normalizedQuery = normalizeText(query); // Normaliza o texto da busca
+
+        // Mapeamento de palavras-chave para categorias
+        const categories = {
+            tutoriais: ["tutoriais", "tutorial", "aulas", "guia", "como fazer", "ont", "sip", "configurar", "ixc", "onu", "autorizar"],
+            ferramentas: ["ferramentas", "tools", "utilitários", "programas", "ixc", "putty", "unm2000", "grafana"],
+            arquivos: ["arquivo", "arquivos", "pdf", "baixar", "download",],
+            informacoes: ["informações", "informacao", "info", "dados", "notícias", "script", "atendimento", "suporte", "comercial", "financeiro"]
+        };
+
+        // Verificar se a query corresponde a alguma das categorias
+        for (const [category, keywords] of Object.entries(categories)) {
+            if (keywords.some(keyword => normalizedQuery.includes(normalizeText(keyword)))) {
+                window.location.href = `/cat1/${category}.html`;
+                return;
+            }
+        }
+
+        // Se não encontrar nenhuma correspondência, exibe o alerta
+        alert("Nenhum resultado encontrado para: " + query);
+    }
+
+
+// Função para fechar a aba "Sobre"
+function fecharAbinha() {
+    var sobreAbinha = document.getElementById('sobreAbinha');
+    sobreAbinha.style.display = 'none'; // Oculta a aba "Sobre"
+}
+
+    </script>
+</head>
+<body>
+    <header class="header">
+        <img src="/logo.png" alt="Logo" class="logo">
+        <h1>Help Center Olá Telecom</h1>
+        <a href="/index.html">
+            <button class="download-btn">Sair</button>
+        </a>
+        
+    </header>
+    <section class="search-section">
+        <h2>Como podemos ajudar você?</h2>
+        <div class="search-bar">
+            <input type="text" placeholder="O que deseja encontrar?">
+            <button onclick="pesquisar()"><i class="fas fa-search search-icon"></i></button>
+        </div>
+    </section>
+    <section class="categories">
+        <a href="/cat1/tutoriais.html" class="category">
+            <div class="category-image">
+                <img src="/tutoriais.png" alt="Tutoriais">
+            </div>
+            <p>Tutoriais</p>
+        </a>
+        <a href="/cat1/informacoes.html" class="category">
+            <div class="category-image">
+                <img src="/info.png" alt="Informações">
+            </div>
+            <p>Informações</p>
+        </a>
+        <a href="/cat1/arquivos.html" class="category">
+            <div class="category-image">
+                <img src="/doc1.png" alt="Arquivos">
+            </div>
+            <p>Arquivos</p>
+        </a>
+        <a href="/cat1/ferramentas.html" class="category">
+            <div class="category-image">
+                <img src="/ferramentas.png" alt="Ferramentas">
+            </div>
+            <p>Ferramentas</p>
+        </a>
+        <a href="/cat1/documentos.html" class="category">
+            <div class="category-image">
+                <img src="/doc2.png" alt="Documentos">
+            </div>
+            <p>Documentos</p>
+        </a>
+
+
+        <!-- PARA TESTAR A VISUALIZAÇÃO 
+        <a href="/cat1/tutoriais.html" class="category">
+            <div class="category-image">
+                <img src="tutoriais.png" alt="Tutoriais">
+            </div>
+            <p>Tutoriais</p>
+        </a>
+        <a href="/cat1/informacoes.html" class="category">
+            <div class="category-image">
+                <img src="informacoes.png" alt="Informações">
+            </div>
+            <p>Informações</p>
+        </a>
+        <a href="/cat1/arquivos.html" class="category">
+            <div class="category-image">
+                <img src="arquivos.png" alt="Arquivos">
+            </div>
+            <p>Arquivos</p>
+        </a>
+        <a href="/cat1/ferramentas.html" class="category">
+            <div class="category-image">
+                <img src="ferramentas.png" alt="Ferramentas">
+            </div>
+            <p>Ferramentas</p>
+        </a>
+        <a href="/cat1/documentos.html" class="category">
+            <div class="category-image">
+                <img src="doc.png" alt="Documentos">
+            </div>
+            <p>Documentos</p>
+        </a>
+        <a href="/cat1/ferramentas.html" class="category">
+            <div class="category-image">
+                <img src="ferramentas.png" alt="Ferramentas">
+            </div>
+            <p>Ferramentas</p>
+        </a>
+        <a href="/cat1/documentos.html" class="category">
+            <div class="category-image">
+                <img src="doc.png" alt="Documentos">
+            </div>
+            <p>Documentos</p>
+        </a>
+        -->
+    </section>
+
+    <div id="sobreAbinha" class="sobre-abinha">
+        <div class="sobre-conteudo">
+            <h3>Sobre o Sistema</h3>
+            <p>Versão: 1.0.0</p>
+            <p>Ultima atualização: 12/11/2024</p>
+            <button onclick="fecharAbinha()">Fechar</button>
+        </div>
+    </div>
+</body>
+
+<footer class="footer">
+    <p>© 2024 Desenvolvido por João Pedro Nery e equipe de suporte Olá Telecom.</p>
+</footer>
+
+
+</html>

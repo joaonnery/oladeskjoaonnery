@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body, html {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #F26F21;
+    height: 100%;
+}
+
+
+
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-color: #020F27
+}
+
+.formLogin {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 7px;
+    padding: 20px 40px;
+    box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.4);
+    gap: 5px;
+
+    /* Aumentar largura do painel */
+    width: 450px; /* ajuste este valor conforme desejado */
+    max-width: 90%; /* assegura que o painel não ultrapasse a largura da tela em dispositivos menores */
+}
+
+
+.areaLogin img {
+    width: 420px;
+}
+
+.formLogin h1 {
+    padding: 0;
+    margin: 0;
+    font-weight: 500;
+    font-size: 2.3em;
+}
+
+.formLogin p {
+    display: inline-block;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.formLogin input {
+    padding: 15px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    border-radius: 4px;
+    transition: all linear 160ms;
+    outline: none;
+}
+
+
+.formLogin input:focus {
+    border: 1px solid #F26F21;
+}
+
+.formLogin label {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.formLogin a {
+    display: inline-block;
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: #555;
+    transition: all linear 160ms;
+}
+
+.formLogin a:hover {
+    color: #F26F21;
+}
+
+button {
+    background-color: #F26F21;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    border: none !important;
+    transition: all linear 160ms;
+    cursor: pointer;
+    margin: 0 !important;
+    padding: 15px 0; /* Aumenta a altura vertical do botão */
+    height: 50px; /* Define uma altura fixa para o botão */
+    border-radius: 10px;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background-color: #F26F21;
+}
+
+
+.logoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+}
+
+.softwareName {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #666;
+    margin-top: 10px;
+}
+
+.rememberContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #666;
+}
+
+.rememberContainer input[type="checkbox"] {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.rememberContainer label {
+    cursor: pointer;
+}
+
+.footer {
+    width: 100%;
+    background-color: #000000; /* Cor de fundo do rodapé */
+    color: #ffffff; /* Cor do texto */
+    text-align: center;
+    padding: 20px 0; /* Espaçamento vertical */
+    font-size: 14px;
+    font-weight: 400;
+    /* margin-top: 40px; Espaço acima do rodapé para separá-lo do conteúdo */
+}
+
+
+.footer p {
+    margin: 0;
+    font-weight: 400;
+}
+
+/* Estilizando a barra de rolagem */
+::-webkit-scrollbar {
+    width: 8px; /* largura da barra de rolagem */
+    height: 8px; /* altura da barra de rolagem horizontal */
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* cor de fundo do trilho da barra de rolagem */
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #F26F21; /* cor da parte "pegajosa" da barra de rolagem */
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #e65c1c; /* cor de destaque quando o usuário passa o mouse */
+}
+
+/* Estilizando a cor de foco nos inputs */
+.formLogin input:focus {
+    border: 1px solid #F26F21; /* borda de foco dos campos de input */
+}
+
+/* Estilizando os links */
+.formLogin a:hover {
+    color: #F26F21; /* cor de destaque ao passar o mouse sobre o link */
+}
+
+/* Estilizando o botão */
+.btn:hover {
+    background-color: #F26F21; /* cor de fundo ao passar o mouse sobre o botão */
+}
+
+
+
+/* Estilo básico para a aba "Sobre" */
+.sobre-abinha {
+    display: none; /* Oculta a aba por padrão */
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    font-family: Verdana, Geneva, Tahoma, sans-serif, sans-serif; /* Fonte semelhante */
+    font-size: 12px; /* Tamanho da fonte do conteúdo */
+}
+
+.sobre-conteudo h3 {
+    margin-top: 0;
+}
+
+.sobre-conteudo button {
+    background-color: #ff5200;
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #b63700;
+}
+
+
+
+

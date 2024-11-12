@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutoriais - Olá Telecom</title>
+    <link rel="icon" type="image/png" href="/logo.png">
+    <link rel="stylesheet" href="/styles-t.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <img src="/logo.png" alt="Logo" class="logo">
+        <h1>Tutoriais</h1>
+        <a href="/acr1/homepage.html">
+            <button class="download-btn">Home</button>
+        </a>
+    </header>
+    
+    <section class="search-section">
+        <!--<h2>Pesquise por um tutorial</h2> Seção de tutoriais -->
+        <div class="search-bar">
+            <input type="text" placeholder="O que você está procurando?" oninput="pesquisarTutoriais()">
+            <button onclick="pesquisarTutoriais()"><i class="fas fa-search search-icon"></i></button>
+        </div>
+    </section>
+
+    <!-- Seção de tutoriais -->
+    <section class="tutorials">
+        <div class="tutorial">
+            <a href="link_do_tutorial_1.html" class="tutorial-link"> <!-- Adiciona a tag <a> aqui -->
+                <div class="tutorial-image">
+                    <img src="/roteador.png" alt="Tutorial 1">
+                </div>
+                <h3>Como configurar uma ONT</h3>
+                <p>Aprenda como configurar uma ONT para autenticação PPPOE</p>
+            </a>
+        </div>
+        <div class="tutorial">
+            <a href="link_do_tutorial_2.html" class="tutorial-link"> <!-- Adiciona a tag <a> aqui -->
+                <div class="tutorial-image">
+                    <img src="/onu.png" alt="Tutorial 2">
+                </div>
+                <h3>Passo a passo provisionando uma ONU</h3>
+                <p>Passo a passo para autorizar equipamentos em redes FTTH</p>
+            </a>
+        </div>
+        <div class="tutorial">
+            <a href="link_do_tutorial_3.html" class="tutorial-link"> <!-- Adiciona a tag <a> aqui -->
+                <div class="tutorial-image">
+                    <img src="/ramal.png" alt="Tutorial 3">
+                </div>
+                <h3>Configuração básica de ramal para telefonia SIP</h3>
+                <p>Configurando uma conta de ramal em um softphone</p>
+            </a>
+        </div>
+        <!-- Mais tutoriais podem ser adicionados aqui -->
+    </section>
+    <div id="sobreAbinha" class="sobre-abinha">
+        <div class="sobre-conteudo">
+            <h3>Sobre o Sistema</h3>
+            <p>Versão: 1.0.0</p>
+            <p>Ultima atualização: 12/11/2024</p>
+            <button onclick="fecharAbinha()">Fechar</button>
+        </div>
+    </div>
+
+    <script>
+        // Função para pesquisa de tutoriais
+        function pesquisarTutoriais() {
+            var query = document.querySelector('.search-bar input').value.toLowerCase(); // Pega o valor da pesquisa
+            var tutorials = document.querySelectorAll('.tutorial'); // Pega todos os tutoriais
+            tutorials.forEach(function(tutorial) {
+                var title = tutorial.querySelector('h3').textContent.toLowerCase(); // Pega o título de cada tutorial
+                if (title.includes(query)) {
+                    tutorial.style.display = 'block'; // Exibe o tutorial se o título contiver o termo pesquisado
+                } else {
+                    tutorial.style.display = 'none'; // Esconde o tutorial caso contrário
+                }
+            });
+        }
+
+       // Função para mostrar a aba "Sobre" ao clicar com o botão direito
+document.addEventListener('contextmenu', function(event) {
+    event.preventDefault(); // Previne o menu de contexto padrão
+    var sobreAbinha = document.getElementById('sobreAbinha');
+    sobreAbinha.style.display = 'block'; // Exibe a aba "Sobre"
+});
+
+// Função para fechar a aba "Sobre"
+function fecharAbinha() {
+    var sobreAbinha = document.getElementById('sobreAbinha');
+    sobreAbinha.style.display = 'none'; // Oculta a aba "Sobre"
+}
+
+// Função para detectar a tecla F12 e Ctrl + U
+document.addEventListener('keydown', function(event) {
+    if (event.key === "F12" || (event.ctrlKey && event.key === "u")) {
+        event.preventDefault(); // Impede a ação padrão de F12 e Ctrl + U
+        var sobreAbinha = document.getElementById('sobreAbinha');
+        sobreAbinha.style.display = 'block'; // Exibe a aba "Sobre"
+    }
+})
+    </script>
+</body>
+<footer class="footer">
+    <p>© 2024 Desenvolvido por João Pedro Nery e equipe de suporte Olá Telecom.</p>
+</footer>
+</html>
